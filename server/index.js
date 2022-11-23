@@ -5,19 +5,14 @@ import { Users } from './controller/index.js'
 
 const app = express()
 
-//CORS blokavimo nuėmimas 
 app.use(cors())
 
-//Duomenų priėmimui JSON formatu
 app.use(express.json())
 
-//Failu perdavimui is statinės direktorijos
 app.use('/uploads', express.static('uploads'))
 
-//Duomenų priėmimui POST metodu
 app.use(express.urlencoded({ extended: true }))
 
-//Sesijos konfigūracija
 app.set('trust proxy', 1)
 
 app.use(session({
@@ -38,5 +33,5 @@ app.use('/api/users/', Users)
 // app.use('/api/orders/', Orders)
 // app.use('/api/ratings/', Ratings)
 
-//Paleidžiame serverį
+
 app.listen(3000)

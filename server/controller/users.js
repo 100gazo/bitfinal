@@ -23,7 +23,7 @@ router.post('/register', registerValidator, async (req, res) => {
         req.body.password = await bcrypt.hash(req.body.password, 10)
 
         await db.Users.create(req.body)
-        res.send('Vartotojas sėkmingai sukurtas')
+        res.send('User created successfully')
 
     } catch (error) {
 
@@ -39,7 +39,7 @@ router.delete('api/users/delete/:id', adminAuth, async (req, res) => {
         res.send('User deleted successfully')
     } catch (error) {
         console.log(error)
-        res.status(500).send('Error')
+        res.status(500).send('error')
     }
 })
 
@@ -97,8 +97,8 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        const books = await db.Books.findAll(options)
-        res.json(books)
+        const users = await db.Users.findAll(options)
+        res.json(users)
     } catch (error) {
         console.log(error)
         res.status(500).send('Error')

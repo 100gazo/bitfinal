@@ -12,6 +12,7 @@ import Register from './Pages/Register'
 import Books from './Pages/Admin/Books'
 import AddBook from './Pages/Admin/Add'
 import EditBook from './Pages/Admin/Edit'
+import Users from './Pages/Admin/Users'
 
 import List from './Pages/List'
 
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="books/list" element={<Books />} />
                 <Route path="books/add" element={<AddBook />} />
                 <Route path="books/edit/:id" element={<EditBook />} />
+                <Route path="users/list" element={<Users />} />
 
               </Route>
             }
@@ -65,7 +67,7 @@ const App = () => {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="api/books/list" element={<List />} />
-            {/* <Route path="*" element={<Login />} /> */}
+            <Route path="*" element={<Login />} />
           </Routes>
         </div>
       </MainContext.Provider>

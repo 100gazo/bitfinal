@@ -2,9 +2,10 @@ import express from 'express'
 import bcrypt from 'bcrypt'
 import db from '../database/connect.js'
 import { registerValidator, loginValidator } from '../middleware/validate.js'
-import { auth } from '../middleware/auth.js'
+import { auth, adminAuth } from '../middleware/auth.js'
 
 const router = express.Router()
+
 
 router.post('/register', registerValidator, async (req, res) => {
     try {
@@ -28,6 +29,17 @@ router.post('/register', registerValidator, async (req, res) => {
 
         console.log(error)
         res.status(418).send('Server error')
+    }
+})
+
+router.delete('api/users/delete/:id', adminAuth, async (req, res) => {
+    try {
+        const user = await db.Users.findByPk(req.params.id)
+        await user.destroy()
+        res.send('User deleted successfully')
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Error')
     }
 })
 
@@ -68,6 +80,29 @@ router.get('/logout', (req, res) => {
 
 router.get('/check-auth', auth, async (req, res) => {
     res.json(req.session.user)
+})
+router.get('/', async (req, res) => {
+    const options = {}
+
+    if (req.query.sort === '1') {
+        options.order = [
+            ['name', 'ASC']
+        ]
+    }
+
+    if (req.query.sort === '2') {
+        options.order = [
+            ['name', 'DESC']
+        ]
+    }
+
+    try {
+        const books = await db.Books.findAll(options)
+        res.json(books)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Error')
+    }
 })
 
 export default router

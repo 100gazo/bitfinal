@@ -71,6 +71,14 @@ const Header = () => {
                                             Add Book
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link
+                                            to="/admin/users/list"
+                                            className="nav-link px-2"
+                                        >
+                                            User List
+                                        </Link>
+                                    </li>
 
                                 </ul>
                             </li>

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import MainContext from '../../Context/MainContext'
 
-const EditUser = () => {
+const UserEdit = () => {
     const { setAlert } = useContext(MainContext)
     const { id } = useParams()
     const navigate = useNavigate()
@@ -48,17 +48,17 @@ const EditUser = () => {
 
 
 
-    useEffect(() => {
-        axios.get('/api/users/')
-            .then(resp => setUsers(resp.data))
-            .catch(error => {
-                console.log(error)
-                setAlert({
-                    message: error.response.data,
-                    status: 'danger'
-                })
-            })
-    }, [setAlert])
+    // useEffect(() => {
+    //     axios.get('/api/users/')
+    //         .then(resp => setUsers(resp.data))
+    //         .catch(error => {
+    //             console.log(error)
+    //             setAlert({
+    //                 message: error.response.data,
+    //                 status: 'danger'
+    //             })
+    //         })
+    // }, [setAlert])
 
     return (
         <>
@@ -91,4 +91,4 @@ const EditUser = () => {
     )
 }
 
-export default EditBook
+export default UserEdit

@@ -13,6 +13,7 @@ import Books from './Pages/Admin/Books'
 import AddBook from './Pages/Admin/Add'
 import EditBook from './Pages/Admin/Edit'
 import Users from './Pages/Admin/Users'
+import UserEdit from './Pages/Admin/UserEdit'
 
 import List from './Pages/List'
 
@@ -51,22 +52,22 @@ const App = () => {
                 <Route path="books/add" element={<AddBook />} />
                 <Route path="books/edit/:id" element={<EditBook />} />
                 <Route path="users/list" element={<Users />} />
-
+                <Route path='users/edit' element={<UserEdit />} />
               </Route>
             }
-            {/* {userInfo.role === 0 &&
+            {userInfo.role === 0 &&
               <Route path="api">
                 <Route path="api/books/list" element={<List />} />
 
 
               </Route>
-            } */}
+            }
 
 
 
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="api/books/list" element={<List />} />
+
             <Route path="*" element={<Login />} />
           </Routes>
         </div>

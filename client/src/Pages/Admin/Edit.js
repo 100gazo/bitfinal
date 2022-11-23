@@ -11,7 +11,8 @@ const EditBook = () => {
     const [form, setForm] = useState({
         name: '',
         author: '',
-        photo: ''
+        photo: '',
+        category: ''
     })
 
     const [books, setBooks] = useState([])
@@ -45,16 +46,7 @@ const EditBook = () => {
             })
     }
 
-    // useEffect(() => {
-    //     axios.get('/api/books/single/' + id)
-    //         .then(resp => setForm(resp.data))
-    //         .catch(error => {
-    //             setAlert({
-    //                 message: error.response.data,
-    //                 status: 'danger'
-    //             })
-    //         })
-    // }, [id, setAlert])
+
 
     useEffect(() => {
         axios.get('/api/books/')
@@ -86,6 +78,19 @@ const EditBook = () => {
                     <div className="form-group mb-2">
                         <label className="mb-1">Photo:</label>
                         <input type="file" step="any" name="photo" className="form-control" onChange={handleForm} value={form.photo} />
+                    </div>
+                    <div className="form-group mb-2">
+                        <label className="mb-1">Category:</label>
+                        <select
+                            name="saloonId"
+                            onChange={handleForm}
+                            className="form-control"
+                            value={form.saloonId ? form.saloonId : ''}
+                        >
+                            {books.map(saloon =>
+                                <option key={saloon.id} value={saloon.id}>{books.category}</option>
+                            )}
+                        </select>
                     </div>
 
                     <button className="btn btn-primary">Išsaugoti</button>

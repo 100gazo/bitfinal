@@ -37,6 +37,7 @@ const List = () => {
                             <th> Name</th>
                             <th>Author</th>
                             <th>Cover</th>
+                            <th>Category</th>
                             <th>Rating</th>
 
                         </tr>
@@ -49,6 +50,7 @@ const List = () => {
                                 <td>{books.name}</td>
                                 <td>{books.author}</td>
                                 <td>{books.photo}</td>
+                                <td>{books.category}</td>
                                 <td>{books.rating}</td>
 
                             </tr>

@@ -18,7 +18,12 @@ const Books = (sequelize) => {
         rating: {
             type: DataTypes.STRING, //= TEXT
             allowNull: true
+        },
+        category: {
+            type: DataTypes.STRING, //= TEXT
+            allowNull: false
         }
+
     }
 
     return sequelize.define('books', Schema)

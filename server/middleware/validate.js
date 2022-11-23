@@ -12,19 +12,19 @@ const validate = (schema, req, res, next) => {
     if (error) {
         switch (error.details[0].path[0]) {
             case 'first_name':
-                message = 'Bad Name'
+                message = 'Incorect First Name'
                 break
             case 'last_name':
-                message = 'Neteisingai nurodyta pavardė'
+                message = 'Incorect Last Name'
                 break
             case 'email':
-                message = 'Neteisingai nurodytas el. pašto adresas'
+                message = 'Incorect email'
                 break
             case 'password':
-                message = 'Neteisingai nurodytas slaptažodis'
+                message = 'Incorect password'
                 break
             default:
-                message = 'Neteisingai užpildyti laukeliai'
+                message = 'Check input fields'
                 break
         }
 

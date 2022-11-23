@@ -60,6 +60,7 @@ const Books = () => {
                             <th> Name</th>
                             <th>Author</th>
                             <th>Cover</th>
+                            <th>Category</th>
                             <th>Rating</th>
                             <th></th>
                         </tr>
@@ -72,6 +73,7 @@ const Books = () => {
                                 <td>{books.name}</td>
                                 <td>{books.author}</td>
                                 <td>{books.photo}</td>
+                                <td>{books.category}</td>
                                 <td>{books.rating}</td>
                                 <td>
                                     <div className="d-flex justify-content-end gap-2">

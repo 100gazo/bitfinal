@@ -30,7 +30,7 @@ const Login = () => {
 
                 setTimeout(() => {
                     if (resp.data.user.role === 1)
-                        return navigate('/books/list')
+                        return navigate('/admin/books/list')
 
                     navigate('/api/books/list')
                 }, 1000)

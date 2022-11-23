@@ -24,7 +24,7 @@ Router.get('/', async (req, res) => {
         res.json(books)
     } catch (error) {
         console.log(error)
-        res.status(500).send('Įvyko klaida')
+        res.status(500).send('Error')
     }
 })
 
@@ -36,7 +36,7 @@ Router.post('/new', adminAuth, async (req, res) => {
         res.send('Book added successfully')
     } catch (error) {
         console.log(error)
-        res.status(500).send('Error cant save book')
+        res.status(500).send(`Error can't save book`)
     }
 })
 

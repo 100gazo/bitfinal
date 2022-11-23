@@ -23,6 +23,7 @@ const Header = () => {
             })
     }
 
+
     return (
         <header className="p-3 text-bg-dark">
             <div className="container">
@@ -44,16 +45,7 @@ const Header = () => {
                             </Link>
                         </li>
 
-                        {userInfo.role === 0 &&
-                            <li>
-                                <Link
-                                    to="/books"
-                                    className="nav-link px-2"
-                                >
-                                    Books
-                                </Link>
-                            </li>
-                        }
+
                         {userInfo.role === 1 &&
                             <li>
                                 <div

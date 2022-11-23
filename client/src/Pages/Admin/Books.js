@@ -50,7 +50,7 @@ const Books = () => {
     return (
         <>
             <div className="page-heading">
-                <h1>Užsakymai</h1>
+                <h1>Booklist</h1>
             </div>
             {books ?
                 <table className="table table-striped table-hover">

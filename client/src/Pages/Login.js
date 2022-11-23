@@ -30,9 +30,9 @@ const Login = () => {
 
                 setTimeout(() => {
                     if (resp.data.user.role === 1)
-                        return navigate('/admin/books/list')
+                        return navigate('/books/list')
 
-                    navigate('/')
+                    navigate('/api/books/list')
                 }, 1000)
             })
             .catch(error => {
@@ -45,17 +45,17 @@ const Login = () => {
 
     return (
         <>
-            <h1>Prisijungimas</h1>
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group mb-2">
-                    <label className="mb-1">El. pašto adresas:</label>
-                    <input type="email" name="email" className="form-control" onChange={handleForm} placeholder="albertas.cenkus@gmail.com" />
+                    <label className="mb-1">Email:</label>
+                    <input type="email" name="email" className="form-control" onChange={handleForm} placeholder="your@email.here" />
                 </div>
                 <div className="form-group mb-3">
-                    <label className="mb-1">Slaptažodis:</label>
-                    <input type="password" name="password" className="form-control" onChange={handleForm} placeholder="albertasnoributiore" />
+                    <label className="mb-1">Password:</label>
+                    <input type="password" name="password" className="form-control" onChange={handleForm} placeholder="type your password here" />
                 </div>
-                <button className="btn btn-primary">Prisijungti</button>
+                <button className="btn btn-primary">Login</button>
             </form>
         </>
     )

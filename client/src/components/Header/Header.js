@@ -37,7 +37,7 @@ const Header = () => {
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 ms-5 justify-content-center mb-md-0">
                         <li>
                             <Link
-                                to="/"
+                                to="api/books/list"
                                 className="nav-link px-2 nav-link-active"
                             >
                                 Books

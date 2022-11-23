@@ -76,7 +76,7 @@ const AddBook = () => {
                         <input type="file" name="photo" className="form-control" onChange={handleForm} />
                     </div>
 
-                    <button className="btn btn-primary">Išsaugoti</button>
+                    <button className="btn btn-primary">Add</button>
                 </form>
             </div>
         </>

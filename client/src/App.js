@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
+import MainContext from './Context/MainContext'
 
 import Login from './Pages/Login'
 import Register from './Pages/Register'
-
-import MainContext from './Context/MainContext'
-
+import Books from './Pages/Admin/List'
+import AddBook from './Pages/Admin/Add'
 
 import Header from './components/Header/Header'
 import Alert from './components/Alert/Alert'
 import './App.css';
+import EditBook from './Pages/Admin/Edit'
 
 
 const App = () => {
@@ -37,12 +38,13 @@ const App = () => {
         <div className="container">
           <Alert />
           <Routes>
-            {/* Admin keliai
+            {/* Admin keliai */}
             {userInfo.role === 1 &&
               <Route path="admin">
-                <Route index element={<Saloons />} />
-                <Route path="saloons/new" element={<NewSaloon />} />
-                <Route path="saloons/edit/:id" element={<EditSaloon />} />
+                <Route path="admin/books/list" element={<Books />} />
+                <Route path="admin/books/edit/:id" element={<EditBook />} />
+                <Route path="amdin/books/add" element={<AddBook />} />
+                {/* 
                 <Route path="services" element={<Services />} />
                 <Route path="services/new" element={<NewService />} />
                 <Route path="services/edit/:id" element={<EditService />} />
@@ -50,18 +52,11 @@ const App = () => {
                 <Route path="workers/new" element={<NewWorker />} />
                 <Route path="workers/edit/:id" element={<EditWorker />} />
                 <Route path="orders" element={<Orders />} />
-                <Route path="orders/edit/:id" element={<EditOrder />} />
+                <Route path="orders/edit/:id" element={<EditOrder />} /> */}
               </Route>
-            } */}
-            {/* Vieši keliai
-            <Route path="/" element={<PublicSaloons />} />
-            <Route path="workers" element={<PublicWorkers />} />
-            {userInfo.id &&
-              <>
-                <Route path="new-order/:saloonId" element={<PublicNewOrder />} />
-                <Route path="orders" element={<PublicOrders />} />
-              </>
-            } */}
+            }
+
+
 
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />

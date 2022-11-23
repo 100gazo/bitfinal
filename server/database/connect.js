@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize'
 import mysql from 'mysql2/promise'
-import { Users } from '../model/index.js'
+import { Users, Books } from '../model/index.js'
 
 const database = {}
 const credentials = {
@@ -22,6 +22,7 @@ try {
     const sequelize = new Sequelize(credentials.database, credentials.user, credentials.password, { dialect: 'mysql' })
 
     database.Users = Users(sequelize)
+    database.Books = Books(sequelize)
 
 
     // database.Orders.hasOne(database.Ratings)

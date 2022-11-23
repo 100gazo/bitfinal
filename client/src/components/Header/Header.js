@@ -28,10 +28,9 @@ const Header = () => {
             <div className="container">
                 <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        {/* <img src={logo} alt="Beauty Parlor" style={{ maxWidth: '40px' }} /> */}
                         <div className="d-block ms-3 lh-1">
-                            <h6 className="mb-0">Lukio Bakšio</h6>
-                            <span className="text-uppercase fs-7 fw-semibold">Grožio salonų grupė</span>
+                            <h6 className="mb-0">BBB</h6>
+                            <span className="text-uppercase fs-7 fw-semibold">Best Books by BiT</span>
                         </div>
                     </a>
 
@@ -41,60 +40,46 @@ const Header = () => {
                                 to="/"
                                 className="nav-link px-2 nav-link-active"
                             >
-                                Salonai
+                                Books
                             </Link>
                         </li>
-                        <li>
-                            <Link
-                                to="/workers"
-                                className="nav-link px-2"
-                            >
-                                Darbuotojai
-                            </Link>
-                        </li>
+
                         {userInfo.role === 0 &&
                             <li>
                                 <Link
-                                    to="/orders"
+                                    to="/books"
                                     className="nav-link px-2"
                                 >
-                                    Užsakymai
+                                    Books
                                 </Link>
                             </li>
                         }
                         {userInfo.role === 1 &&
                             <li>
-                                <Link
-                                    to="/admin"
+                                <div
+                                    to="/admin/books/list"
                                     className="nav-link px-2"
                                 >
-                                    Administratorius
-                                </Link>
+                                    Admin panel
+                                </div>
                                 <ul>
                                     <li>
                                         <Link
-                                            to="/admin/services/"
+                                            to="/admin/books/list"
                                             className="nav-link px-2"
                                         >
-                                            Paslaugos
+                                            Books List
                                         </Link>
                                     </li>
                                     <li>
                                         <Link
-                                            to="/admin/workers"
+                                            to="/admin/books/add"
                                             className="nav-link px-2"
                                         >
-                                            Darbuotojai
+                                            Add Book
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link
-                                            to="/admin/orders"
-                                            className="nav-link px-2"
-                                        >
-                                            Užsakymai
-                                        </Link>
-                                    </li>
+
                                 </ul>
                             </li>
                         }
@@ -102,11 +87,11 @@ const Header = () => {
 
                     <div className="text-end">
                         {userInfo.id ?
-                            <button onClick={handleLogout} className="btn btn-primary">Atsijungti</button>
+                            <button onClick={handleLogout} className="btn btn-primary">Logout</button>
                             :
                             <>
-                                <Link to="/login" className="btn btn-outline-light me-2">Prisijungimas</Link>
-                                <Link to="/register" className="btn btn-primary">Registracija</Link>
+                                <Link to="/login" className="btn btn-outline-light me-2">Login</Link>
+                                <Link to="/register" className="btn btn-primary">Register</Link>
                             </>
                         }
                     </div>

@@ -15,7 +15,7 @@ router.post('/register', registerValidator, async (req, res) => {
         })
 
         if (userExists) {
-            res.status(401).send('Toks vartotojas jau egzistuoja')
+            res.status(401).send('This email already used')
             return
         }
 
@@ -27,7 +27,7 @@ router.post('/register', registerValidator, async (req, res) => {
     } catch (error) {
 
         console.log(error)
-        res.status(418).send('Įvyko serverio klaida')
+        res.status(418).send('Server error')
     }
 })
 
@@ -40,7 +40,7 @@ router.post('/login', loginValidator, async (req, res) => {
         })
 
         if (!user)
-            return res.status(401).send('Toks vartotojas nerastas')
+            return res.status(401).send('User not found')
 
         if (await bcrypt.compare(req.body.password, user.password)) {
             req.session.loggedin = true
@@ -53,7 +53,7 @@ router.post('/login', loginValidator, async (req, res) => {
             }
             res.json({ message: 'Login success', user: req.session.user })
         } else {
-            res.status(401).send('Cant connect')
+            res.status(401).send('Cant connect database')
         }
     } catch (error) {
         console.log(error)
